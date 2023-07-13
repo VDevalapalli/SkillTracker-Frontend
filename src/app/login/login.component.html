@@ -1,0 +1,31 @@
+<div fxLayoutAlign="center center" fxFlexFill class="login-div">
+
+  <mat-card fxFlex="25" class="login-card">
+    <mat-toolbar color="primary">
+      <div class="md-toolbar-tools">
+        <h2><span>Login</span></h2>
+      </div>
+    </mat-toolbar>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()" fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+    <mat-form-field>
+      <input matInput type="text" formControlName="userName" required placeholder="User Name">
+      <div *ngIf="(f.userName.touched || f.userName.dirty) && f.userName.invalid">
+        <small>User Name is Required</small>
+      </div>
+      <div *ngIf="f['userName'].hasError('maxlength')">
+        <small>User Name should not be more than 50 characters</small>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="password" formControlName="password" placeholder="Password">
+      <div *ngIf="(f.password.touched || f.password.dirty) && f['password'].hasError('required')">
+        <small>Password is Required</small>
+      </div>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="f['userName'].hasError('required') || f['userName'].hasError('maxlength') || f['password'].hasError('required')">Login</button>
+  </form>
+  </mat-card>
+</div>

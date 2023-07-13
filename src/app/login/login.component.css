@@ -1,0 +1,58 @@
+form {
+  border: .1rem blue;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 90%;
+  height: 220px;
+  margin: auto;
+  padding: .2rem;
+}
+
+.login-card {
+  margin:0 auto;
+  display:inline-block;
+  width: 380px;
+  height: 320px;
+  padding: .1rem;
+  border-radius: 5px;
+}
+
+.login-div {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* mat-card {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  height: 320px;
+  margin: 0 auto;
+  padding: .1rem;
+  border-radius: 5px;
+  justify-content:center;
+  align-items:center;
+} */
+
+.login-form {
+  padding: 20px;
+}
+
+mat-toolbar {
+  width: 100%;
+  color: aliceblue;
+}
+
+mat-card-content {
+  width: 100%;
+  min-height: 160px;
+}
+
+small{
+  color:red;
+  font-style: bold;
+  padding: 0.2rem;
+}

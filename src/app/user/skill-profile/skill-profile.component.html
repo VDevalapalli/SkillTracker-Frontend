@@ -1,0 +1,77 @@
+<form class="example-form" [formGroup]="skillProfileForm" (ngSubmit)="saveSkillProfile()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Profile User Name</mat-label>
+    <input matInput placeholder="Profile User Name" formControlName="profileName" readonly="{{this.update}}">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Associate Id</mat-label>
+    <input matInput placeholder="Associate Id" formControlName="associateId" readonly="{{this.update}}">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email" readonly="{{this.update}}">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Mobile</mat-label>
+    <input matInput placeholder="Mobile" formControlName="mobile" readonly="{{this.update}}">
+  </mat-form-field>
+
+  <div class="row">
+    <div class="col-md">
+      <h3>Technical Skills</h3>
+      <table formArrayName="technicalSkills" style="margin: 2%;width: 90%;"
+        class="table table-bordered table-hover mat-elevation-z8">
+        <thead>
+          <tr>
+            <th>Skill Name</th>
+            <th>Expertize Level</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr *ngFor="let item of technicalSkills.controls;let i=index" [formGroupName]="i">
+            <td>
+              <input matInput class="form-control" formControlName="skillName" readonly="true">
+            </td>
+            <td>
+              <input matInput type="number" placeholder="on scale of [1-20]" formControlName="expertiseLevel" min="1"
+                max="20">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md">
+      <h3>Non-Technical Skills</h3>
+      <table formArrayName="nonTechnicalSkills" style="margin: 2%;width: 90%;"
+      class="table table-bordered table-hover mat-elevation-z8">
+        <thead>
+          <tr>
+            <th>Skill Name</th>
+            <th>Expertize Level</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr *ngFor="let item of nonTechnicalSkills.controls;let i=index" [formGroupName]="i">
+            <td>
+              <input matInput class="form-control" formControlName="skillName" readonly="true">
+            </td>
+            <td>
+              <input matInput type="number" placeholder="on scale of [1-20]" formControlName="expertiseLevel" min="1"
+                max="20">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="example-button-row" style="padding: 1%">
+    <button mat-raised-button color="primary" [disabled]="this.skillProfileForm.invalid" *ngIf="!f['profileId'].value">Save Profile</button>
+    <button mat-raised-button color="primary" [disabled]="this.skillProfileForm.invalid" *ngIf="f['profileId'].value">Update Profile</button> |
+    <button mat-raised-button color="accent">Cancel</button>
+  </div>
+
+</form>

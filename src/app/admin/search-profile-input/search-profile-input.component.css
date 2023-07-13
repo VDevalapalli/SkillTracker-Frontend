@@ -1,0 +1,12 @@
+.search-type {
+  width: 10rem;
+}
+
+.search-form {
+  width: 30rem;
+}
+
+.search-form-error {
+  padding: 0.5rem;
+  color: red;
+}

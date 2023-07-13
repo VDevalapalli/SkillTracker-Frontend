@@ -1,0 +1,61 @@
+<div class="card shadow">
+  <div class="card-header">Search Result</div>
+  <div class="card-body">
+    <div *ngIf="this.skillProfileStorageService.result">No Data Found</div>
+    <div class="row" *ngFor="let item of this.skillProfileStorageService.skillprofiles">
+      <mat-card>
+        <mat-card-title class="card-header">Associate Id: {{item.associateId}}</mat-card-title>
+        <div class="column">
+          <mat-card fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(25%-10px)">
+            <mat-card-subtitle>Contact Details</mat-card-subtitle>
+            <mat-card-content>
+              <div class="border row">
+                <div class="col">Name: </div>
+                <div class="col text-center"><span class="text-end">{{item.profileName}}</span></div>
+              </div>
+              <div class="border row">
+                <div class="col">AssociateId: </div>
+                <div class="col text-center"> <span class="text-center">{{item.associateId}}</span>
+                </div>
+              </div>
+              <div class="border row">
+                <div class="col">Mobile: </div>
+                <div class="col text-center"> <span>{{item.mobile}}</span></div>
+              </div>
+              <div class="border row">
+                <div class="col">Email: </div>
+                <div class="col text-center"> <span>{{item.email}}</span></div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="column">
+          <mat-card fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(25%-10px)">
+            <mat-card-subtitle>Technical Skills</mat-card-subtitle>
+            <mat-card-content>
+              <div *ngFor="let sk of item.technicalSkills">
+                <div class="border row">
+                  <div class="col">{{sk.skillName|uppercase}}:</div>
+                  <div class="col text-end"><span>{{sk.expertiseLevel}}</span></div>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="column">
+          <mat-card fxFlex.sm="0 1 calc(50%-10px)" fxFlex.md="0 1 calc(33%-10px)" fxFlex.gt-md="0 1 calc(25%-10px)">
+            <mat-card-subtitle>Non Technical Skills</mat-card-subtitle>
+            <mat-card-content>
+              <div *ngFor="let sk of item.nonTechnicalSkills">
+                <div class="border row">
+                  <div class="col">{{sk.skillName|uppercase}}:</div>
+                  <div class="col text-end"><span>{{sk.expertiseLevel}}</span></div>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

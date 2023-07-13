@@ -1,0 +1,28 @@
+mat-card {
+  margin-bottom: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.card {
+  margin: 10px;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 0.3rem;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

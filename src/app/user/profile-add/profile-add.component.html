@@ -1,0 +1,84 @@
+<mat-stepper orientation="horizontal" [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="personalDetailsFormGroup">
+    <form [formGroup]="personalDetailsFormGroup" class="profile-add-form">
+      <ng-template matStepLabel>Fill Out Your Personal Details</ng-template>
+      <mat-form-field appearance="outline" class="profile-add-form-field">
+        <mat-label>User Name</mat-label>
+        <input matInput placeholder="User Name" formControlName="profileName" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline" class="profile-add-form-field">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline" class="profile-add-form-field">
+        <mat-label>Mobile</mat-label>
+        <input matInput placeholder="Mobile" formControlName="mobile" required>
+      </mat-form-field>
+      <br>
+      <div>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="technicalSkillsFormGroup">
+    <form [formGroup]="technicalSkillsFormGroup" class="profile-add-form">
+      <ng-template matStepLabel>Fill Out Your Technical Skills</ng-template>
+
+
+      <!-- <mat-form-field appearance="outline" class="profile-add-form-field">
+        <mat-label>Skill Name</mat-label>
+        <input matInput formControlName="skillName" placeholder="Ex. Spring"
+               required>
+      </mat-form-field> -->
+      <br>
+      <div class="col-md" *ngFor="let item of this.skillProfileStorageService.technicalSkills">
+        <label for="{{item.skillName}}" class="form-label">{{item.skillName}}</label>
+        <input type="range" formControlName='expertiseLevel' class="form-range"
+            min="1" max="20" step="1" id="{{item.skillName}}" [(ngModel)]="item.expertiseLevel">
+      </div>
+      <br>
+      <div class="example-button-row">
+        <button mat-raised-button color="primary" class="mat-raised-button" matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="nonTechnicalSkillsFormGroup">
+    <form [formGroup]="nonTechnicalSkillsFormGroup" class="profile-add-form">
+      <ng-template matStepLabel>Fill Out Your Non-Technical Skills</ng-template>
+
+      <div class="col-md" *ngFor="let item of this.skillProfileStorageService.nonTechnicalSkills">
+        <label for="{{item.skillName}}" class="form-label">{{item.skillName}}</label>
+        <input type="range" formControlName='expertiseLevel' class="form-range"
+            min="1" max="20" step="1" id="{{item.skillName}}" [(ngModel)]="item.expertiseLevel">
+      </div>
+
+      <!-- <mat-form-field appearance="outline" class="profile-add-form-field">
+        <mat-label>Skill Name</mat-label>
+        <input matInput formControlName="skillName" placeholder="Ex. Communication"
+               required>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline" class="profile-add-form-field">
+        <mat-label>expertiseLevel</mat-label>
+        <input matInput formControlName="expertiseLevel" placeholder="Enter Value between 1-20"
+               required>
+      </mat-form-field> -->
+      <div class="example-button-row">
+        <button mat-raised-button color="primary" class="mat-raised-button" matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" class="mat-raised-button" matStepperPrevious>Back</button>
+      <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
+      <button mat-raised-button color="primary" (click)="fetchTechnicalSkills()" [disabled]="this.personalDetailsFormGroup.invalid">Submit</button>
+    </div>
+  </mat-step>
+</mat-stepper>

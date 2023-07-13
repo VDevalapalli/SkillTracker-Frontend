@@ -1,0 +1,26 @@
+.mat-toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 8px 16px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.app-logo {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+  max-width: 200px;
+  padding: 5px;
+}
+
+.keep-c-toggle-view {
+	/*width: 100%;
+	margin-left: auto;*/
+	margin: auto;
+	cursor: pointer;
+	padding: 8px 16px;
+}

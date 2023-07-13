@@ -1,0 +1,13 @@
+  <mat-toolbar color="primary">
+    <!-- <img src="../../../assets/images/Skill_Tracker_Logo_D_1.png" class="app-logo"> -->
+    <span>Skill Tracker</span>
+    <span class="example-spacer"></span>
+
+    <!-- <div class="keep-c-toggle-view">
+      <a *ngIf="userAuthService.roleMatch('Admin')">Admin Dashboard</a>
+    </div> -->
+
+    <button mat-raised-button *ngIf="! isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">Login</button>
+    <button mat-raised-button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()" >Logout</button>
+
+  </mat-toolbar>

@@ -1,0 +1,25 @@
+.mat-form-field{
+  width: 25%;
+  padding: 1%;
+}
+.form-control{
+  width: 150px;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+td{
+  padding: 3px;
+  border: 1px solid gray;
+  width: 50%;
+}
+
+h3 {
+  margin-left: 12px;
+}
+
+th {
+  background-color: #3F51B5;
+  color: white;
+  font-weight: normal;
+}
